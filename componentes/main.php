@@ -17,7 +17,7 @@
     </div>
     <!--fin img1-->
     <div class="item">
-      <img src="img/slide/sol.jpg" alt="zubiri">
+      <img src="img/slide/s ol.jpg" alt="zubiri">
       <div class="carousel-caption">
         <p>Nuevas tecnologias</p>
       </div>

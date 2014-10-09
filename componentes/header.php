@@ -11,17 +11,18 @@
 	            <span class="icon-bar"></span>
 	            <span class="icon-bar"></span>
          	 </button>
-          	<a class="navbar-brand" href="#">Osteopatia</a>
+          	<a class="navbar-brand" href="index.php">Osteopatia</a>
         </div>
 	  	<!-- Collect the nav links, forms, and other content for toggling -->
 	    <div class="collapse navbar-collapse navbar-ex8-collapse">
 		    <ul class="nav navbar-nav">
 		    	<li><a href="index.php"><span class="glyphicon glyphicon-home"></span> Inicio</a></li>
-		   		<li><a href="anadirPaciente.php"><span class="glyphicon glyphicon-floppy-saved"></span> Añadir Paciente</a></li>
-				<li><a href="listarPacientes.php"><span class="glyphicon glyphicon-list-alt"></span> Lista de Pacientes</a></li>
+		    	<li><a href="listarPacientes.php"><span class="glyphicon glyphicon-list-alt"></span> Lista de Pacientes</a></li>
 			    <li><a href="buscarPaciente.php"><span class="glyphicon glyphicon-search"></span> Buscar Paciente</a></li>
-			    <li><a href="borrarPaciente.php"><span class="glyphicon glyphicon-floppy-remove"></span> Borrar Paciente</a></li>
-			    <li><a href="borrarTodo.php"><span class="glyphicon glyphicon-remove"></span> Borrar Todo</a></li>
+		   		<li><a href="anadirPaciente.php"><span class="glyphicon glyphicon-plus-sign"></span> Añadir Paciente</a></li>
+			    <li><a href="borrarPaciente.php"><span class="glyphicon glyphicon-remove-sign"></span> Borrar Paciente</a></li>
+			    <li><a href="modificarPaciente.php"><span class="glyphicon glyphicon-cog"></span> Modificar Paciente</a></li>
+			    <li><a href="borrarTodo.php"><span class="glyphicon glyphicon-trash"></span> Borrar Todo</a></li>
 		    </ul>
 		</div><!-- /.navbar-collapse -->
 	</nav>
