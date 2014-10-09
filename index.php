@@ -16,15 +16,13 @@
           		<?php include "componentes/noticias.php"; ?>
 			</section><!-- sidebar -->
 		</div><!-- content -->
+		<div class="content row" id="footer">
+      		<?php include "componentes/footer.php"; ?>
+   		</div>
     </section><!-- container -->
-    <div class="row" id="footer">
-      <?php include "componentes/footer.php"; ?>
-    </div>
-
-
+    
     <script src="assets/js/jquery.js"></script>
     <script src="assets/js/bootstrap.js"></script>
     <script src="js/app.js"></script>
-    
 </body>
 </html>
