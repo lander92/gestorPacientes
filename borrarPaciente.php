@@ -9,7 +9,7 @@
 		<div class="content row">
 			<?php include "componentes/header.php"?>
 		</div>
-		<div class="row col-sm-6 col-md-6" >
+		<div class="content row col-sm-6 col-md-6" >
 			<form role="form" method="post" action="buscarPaciente2.php">
 				<div class="form-group">
 			    	<label for="dni">Introduce el DNI del paciente que desea borrar:</label>
@@ -18,7 +18,9 @@
 				<input type="submit" class="btn btn-default" name="borrar" value="borrar">
 			</form>
 		</div>
-		<?php include "componentes/footer.php"; ?>
+		<div class="content row">
+			<?php include "componentes/footer.php"; ?>
+		</div>
 	</section>
 
 	<script src="assets/js/jquery.js"></script>
