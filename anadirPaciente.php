@@ -10,35 +10,71 @@
 			<?php include "componentes/header.php"?>
 		</div>
 		<div class="row col-sm-6 col-md-6" >
-			<form role="form" method="post" action="anadirPaciente2.php">
+		<?php
+		if(isset($_POST['anadir'])){
+			if(!empty($_POST['dni'])){
+				//incluimos el archivo conexion.php para utilizar sus funciones
+				include 'conexion.php';
+				//guardo en variables el nombre de la bd y de la tabla que voy a utilizar
+				$base="gestorPacientes";
+				$dbTabla="pacientes";
+				$conexion=conectar();
+				//guardo en variables los datos que recojo del formulario
+				$dni=$_POST['dni'];
+				$nombre=$_POST['nombre'];
+				$apellidos=$_POST['apellidos'];
+				$localidad=$_POST['localidad'];
+				$telefono=$_POST['telefono'];
+				$historial=$_POST['historial'];
+				//guardo en $consulta la consulta que voy a ejecutar
+				$consulta="INSERT INTO $dbTabla (dni,nombre,apellidos,localidad,telefono,historial) VALUES ('$dni','$nombre','$apellidos','$localidad','$telefono','$historial')";
+				//ejecutamos la consulta
+				if(mysql_db_query($base, $consulta, $conexion)){
+					//si se ejecuta correctamente
+					print "<h3>Registro añadido</h3> <br>";
+				}else{
+					//si no se ejecuta correctamente
+					print "<h3>Registro  no añadido</h3> <br>";
+				}
+			}else{
+				print "<h3>DNI Obligatorio</h3>";
+			}
+		}else{
+		?>
+			<form role="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?>>
 				<div class="form-group">
-			    	<label for="dni">DNI</label>
+			    	<label for="dni">DNI:</label>
 			    	<input type="text" class="form-control" id="dni" name="dni">
 				</div>
 				<div class="form-group">
-			    	<label for="nombre">NOMBRE</label>
+			    	<label for="nombre">NOMBRE:</label>
 			    	<input type="text" class="form-control" id="nombre" name="nombre">
 			  	</div>
 			  	<div class="form-group">
-			    	<label for="apellidos">APELLIDOS</label>
+			    	<label for="apellidos">APELLIDOS:</label>
 			    	<input type="text" class="form-control" id="apellidos" name="apellidos">
 			  	</div>
 			  	<div class="form-group">
-			    	<label for="localidad">LOCALIDAD</label>
+			    	<label for="localidad">LOCALIDAD:</label>
 			    	<input type="text" class="form-control" id="localidad" name="localidad">
 			  	</div>
 			  	<div class="form-group">
-			    	<label for="telefono">TELEFONO</label>
+			    	<label for="telefono">TELEFONO:</label>
 			    	<input type="text" class="form-control" id="telefono" name="telefono">
 			  	</div>
 			  	<div class="form-group">
-			  		<label for="historial">HISTORIAL</label>
+			  		<label for="historial">HISTORIAL:</label>
 			  		<textarea class="form-control" rows="3" name="historial"></textarea>
 			  	</div>
 				<input type="submit" class="btn btn-default" name="anadir" value="añadir">
 			</form>
+			<?php 
+			}
+			?>
 		</div>
+		<div class="content row">
 		<?php include "componentes/footer.php"; ?>
+		</div>
 	</section>
 	
 	
