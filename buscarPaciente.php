@@ -12,13 +12,15 @@
 		<div class="row col-sm-6 col-md-6" >
 			<form role="form" method="post" action="buscarPaciente2.php">
 				<div class="form-group">
-			    	<label for="dni">Introduce el DNI del paciente</label>
+			    	<label for="dni">Introduce el DNI del paciente que desea buscar:</label>
 			    	<input type="text" class="form-control" id="dni" name="dni">
 				</div>
 				<input type="submit" class="btn btn-default" name="buscar" value="buscar">
 			</form>
 		</div>
-		<?php include "componentes/footer.php"; ?>
+		<div class="content row">
+			<?php include "componentes/footer.php"; ?>
+		</div>
 	</section>
 
 	<script src="assets/js/jquery.js"></script>
