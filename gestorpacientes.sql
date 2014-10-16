@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-10-2014 a las 10:19:09
+-- Tiempo de generación: 16-10-2014 a las 10:44:04
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.3.13
 
@@ -19,6 +19,8 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `gestorpacientes`
 --
+CREATE DATABASE `gestorpacientes` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gestorpacientes`;
 
 -- --------------------------------------------------------
 
