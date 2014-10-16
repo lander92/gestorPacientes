@@ -1,27 +1,22 @@
 <?php
-/****************************************
-**establecemos conexion con el servidor.
-**nombre del servidor: localhost.
-**Nombre de usuario: root.
-**Contraseña de usuario: root.
-**Si la conexion fallara mandamos un msj 'ha fallado la conexion'**/
+/*establecemos conexion con el servidor.
+ * nombre del servidor: localhost.
+ * Nombre de usuario: root.
+ * Contraseña de usuario: "".
+ * Si la conexion fallara mandamos un msj 'ha fallado la conexion'*/
 mysql_connect('localhost','root','')or die ('Ha fallado la conexión: '.mysql_error());
 
-/*Luego hacemos la conexión a la base de datos. 
-**De igual manera mandamos un msj si hay algun error*/
+/*Luego hacemos la conexión a la base de datos y mandamos un msj si hay algun error*/
 mysql_select_db('gestorPacientes')or die ('Error al seleccionar la Base de Datos: '.mysql_error());
  
-/*caturamos nuestros datos que fueron enviados desde el formulario mediante el metodo POST
-**y los almacenamos en variables.*/
+/*guardo en variables los datos enviados en el formulario.*/
 $dni = $_POST["dni"];   
 $password = $_POST["password"];
 
-/*Consulta de mysql con la que indicamos que necesitamos que seleccione
-**solo los campos que tenga como nombre_administrador el que el formulario
-**le ha enviado*/
+/*guardo en una variable la consulta que voy a realizar*/
 $result = mysql_query("SELECT * FROM usuarios WHERE dni = '$dni'");
 
-//Validamos si el nombre del administrador existe en la base de datos o es correcto
+//Validamos si el nombre del usuario existe en la base de datos o es correcto
 if($row = mysql_fetch_array($result)){     
 //Si el usuario es correcto ahora validamos su contraseña
  if($row["password"] == $password){
@@ -47,7 +42,8 @@ if($row = mysql_fetch_array($result)){
 	 		 break;
  	}
  }else{
-  //En caso que la contraseña sea incorrecta enviamos un msj y redireccionamos a login.php
+  /*En caso que la contraseña sea incorrecta enviamos un msj 
+   * y redireccionamos a login.php*/
   ?>
    <script languaje="javascript">
     alert("Contraseña Incorrecta");
@@ -56,7 +52,8 @@ if($row = mysql_fetch_array($result)){
   <?php          
  }
 }else{
- //en caso que el nombre de administrador es incorrecto enviamos un msj y redireccionamos a login.php
+ /*en caso que el nombre de administrador es incorrecto 
+  * enviamos un msj y redireccionamos a login.php*/
 ?>
  <script languaje="javascript">
   alert("El nombre de usuario es incorrecto!");
@@ -69,7 +66,6 @@ if($row = mysql_fetch_array($result)){
 mysql_free_result($result);
 
 /*Mysql_close() se usa para cerrar la conexión a la Base de datos y es 
-**necesario hacerlo para no sobrecargar al servidor, bueno en el caso de
-**programar una aplicación que tendrá muchas visitas ;) .*/
+ * necesario hacerlo para no sobrecargar al servidor.*/
 mysql_close();
 ?>
