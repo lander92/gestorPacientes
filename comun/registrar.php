@@ -23,7 +23,7 @@ if(!empty($_POST['dni'])){
 		header ("location: index.php");
 	}else{
 		//si no se ejecuta correctamente
-		print "<h3>Registro  no añadido</h3> <br>";
+		print "<h3>Error en el registro</h3> <br>";
 	}
 }else{
 	print "<h3>DNI Obligatorio</h3>";
