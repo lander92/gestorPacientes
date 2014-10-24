@@ -51,9 +51,9 @@ if($row = mysql_fetch_array($result)){
   ?>
    <script languaje="javascript">
     alert("Contraseña Incorrecta");
+    location.href = "index.php";
    </script>
   <?php    
-  	header("Location: index.php");  
  }
 }else{
  //en caso que el nombre de administrador es incorrecto enviamos un msj y redireccionamos a login.php
