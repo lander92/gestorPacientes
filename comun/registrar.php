@@ -28,3 +28,6 @@ if(!empty($_POST['dni'])){
 }else{
 	print "<h3>DNI Obligatorio</h3>";
 }
+
+//cerramos la conexion a la base de datos
+mysql_close();
