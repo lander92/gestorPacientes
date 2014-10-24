@@ -65,11 +65,6 @@ if($row = mysql_fetch_array($result)){
 <?php           
 }
 
-//Mysql_free_result() se usa para liberar la memoria empleada al realizar una consulta
-mysql_free_result($result);
-
-/*Mysql_close() se usa para cerrar la conexión a la Base de datos y es 
-**necesario hacerlo para no sobrecargar al servidor, bueno en el caso de
-**programar una aplicación que tendrá muchas visitas ;) .*/
+//cerramos la conexion a la base de datos
 mysql_close();
 ?>
