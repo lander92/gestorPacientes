@@ -2,7 +2,21 @@
 <head>
 	<title>Añadir Paciente</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link href="../assets/css/bootstrap.css" rel="stylesheet" media="screen">
+	  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/bootstrap/3.2.0/css/bootstrap.min.css"/>
+
+    <!-- Include FontAwesome CSS if you want to use feedback icons provided by FontAwesome -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/fontawesome/4.1.0/css/font-awesome.min.css" />
+
+    <!-- BootstrapValidator CSS -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/css/bootstrapValidator.min.css"/>
+
+    <!-- jQuery and Bootstrap JS -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+    <!-- BootstrapValidator JS -->
+    <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.bootstrapvalidator/0.5.0/js/bootstrapValidator.min.js"></script>
 </head>
 <body id="anadir">
 	<section class="container">
@@ -16,10 +30,11 @@
 			if(!empty($_POST['dni'])){
 				//incluimos el archivo conexion.php para utilizar sus funciones
 				include '../conexion.php';
-				//guardo en variables el nombre de la bd y de la tabla que voy a utilizar
-				$base="gestorPacientes";
+				//llamo a las funciones para conectarme a la bd y seleccionar la bd
+				conectar();
+				selecDb();
+				//guardo en una variable el nombre de la tabla que voy a usar
 				$dbTabla="pacientes";
-				$conexion=conectar();
 				//guardo en variables los datos que recojo del formulario
 				$dni_medico=$_SESSION['dni'];
 				$dni_paciente=$_POST['dni'];
@@ -31,26 +46,30 @@
 				//guardo en $consulta la consulta que voy a ejecutar
 				$consulta="INSERT INTO $dbTabla (dni_medico,dni_paciente,nombre,apellidos,localidad,telefono,historial) VALUES ('$dni_medico','$dni_paciente','$nombre','$apellidos','$localidad','$telefono','$historial')";
 				//ejecutamos la consulta
-				if(mysql_db_query($base, $consulta, $conexion)){
+				if(mysql_query($consulta)){
 					//si se ejecuta correctamente
 					print "<h3>Registro añadido</h3> <br>";
 				}else{
 					//si no se ejecuta correctamente
 					print "<h3>Registro  no añadido</h3> <br>";
 				}
+				//cierro la conexion
+				mysql_close();
+			//si no ha introducido el dni	
 			}else{
 				print "<h3>DNI Obligatorio</h3>";
 			}
+		//si no ha pulsado el boton	
 		}else{
 		?>
-			<form role="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?>>
+			<form id="formulario" role="form" method="post" action=<?php echo $_SERVER['PHP_SELF']?>>
 				<div class="form-group">
 			    	<label for="dni">DNI:</label>
 			    	<input type="text" class="form-control" id="dni" name="dni">
 				</div>
 				<div class="form-group">
 			    	<label for="nombre">NOMBRE:</label>
-			    	<input type="text" class="form-control" id="nombre" name="nombre">
+			    	<input  type="text" class="form-control" id="nombre" name="nombre">
 			  	</div>
 			  	<div class="form-group">
 			    	<label for="apellidos">APELLIDOS:</label>
@@ -80,9 +99,6 @@
 	</section>
 	
 	
-		
-	<script src="../assets/js/jquery.js"></script>
-    <script src="../assets/js/bootstrap.js"></script>
-    <script src="../js/app.js"></script>
+    <script src="../js/miapp.js"></script>
 </body>
 </html>
