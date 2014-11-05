@@ -136,21 +136,9 @@ $(document).ready(function() {
 
 $(document).ready(function(){
 	$("a:contains('Darse de baja')").on("click",function(){
-		$("#modal").toggle();
-		/*var baja=confirm ("¿Desea cancelar la subscripcion?");
+		var baja=confirm ("¿Desea cancelar la subscripcion?");
 		if(baja){
 			location.href = "baja2.php";
-		}*/
+		}
 	});
-});
-
-/*$(document).ready(function(){
-	$("#modal").modal({show:true});
-});*/
-$(document).ready(function(){
-	function showMensaje(titulo,mensaje){
-		$("#titModal").text(titulo);
-		$("#bodyModal").text(mensaje);
-		$('#modal').modal('show');
-	}
 });
