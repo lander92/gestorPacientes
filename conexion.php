@@ -10,20 +10,20 @@ if(!getenv('OPENSHIFT_MYSQL_DB_HOST')){
 	}
 }else{
 	// Database Connection Setting
-	 define( "DB_SERVER",    getenv('OPENSHIFT_MYSQL_DB_HOST') );
+	 /*define( "DB_SERVER",    getenv('OPENSHIFT_MYSQL_DB_HOST') );
 	 
 	 define( "DB_USER",      getenv('OPENSHIFT_MYSQL_DB_USERNAME') );
 	 
 	 define( "DB_PASSWORD",  getenv('OPENSHIFT_MYSQL_DB_PASSWORD') );
 	 
-	 define( "DB_DATABASE",  getenv('OPENSHIFT_APP_NAME') );
+	 define( "DB_DATABASE",  getenv('OPENSHIFT_APP_NAME') );*/
 	
-	 /*$server=getenv('OPENSHIFT_MYSQL_DB_HOST');
+	 $server=getenv('OPENSHIFT_MYSQL_DB_HOST');
 	 $user=getenv('OPENSHIFT_MYSQL_DB_USERNAME');
 	 $password=getenv('OPENSHIFT_MYSQL_DB_PASSWORD');
-	 $db=getenv('OPENSHIFT_APP_NAME');*/
+	 $db=getenv('OPENSHIFT_APP_NAME');
 	function conectar(){
-	$conexion=mysql_connect(DB_SERVER,DB_USER,DB_PASSWORD) or die(mysql_error());
+	$conexion=mysql_connect($server,$user,$password) or die(mysql_error());
 	return $conexion;
 	}
 	function selecDb(){
